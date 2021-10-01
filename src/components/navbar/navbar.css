@@ -1,0 +1,8 @@
+.nav {
+  background: #151820;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(226, 0, 116, 0.5);
+  font-size: 1.3rem;
+  height: 7rem;
+  position: sticky;
+  top: 0;
+}
