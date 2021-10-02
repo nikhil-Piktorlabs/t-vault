@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  margin: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,4 +32,48 @@ h3 {
 h2,
 h3 {
   font-weight: bold;
+}
+
+/* Main */
+
+.container {
+  background: linear-gradient(to top, #2f3545, #1d212c);
+  height: calc(100vh - 7rem);
+  overflow: auto;
+}
+/* Line */
+
+.hl {
+  height: 0.1rem;
+  margin: 0.7rem 0;
+  background: #2a2e3e;
+}
+
+/* Input */
+
+.input {
+  outline: none;
+}
+
+.input-group {
+  background: #20232e;
+  display: flex;
+  padding: 0.3rem 1rem;
+}
+
+.input-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.input-group .input {
+  background: #20232e;
+  border: 0;
+  caret-color: #5e627c;
+  color: #5e627c;
+}
+
+.input-group .input::placeholder {
+  color: #5e627c;
+  font-family: "Roboto";
 }

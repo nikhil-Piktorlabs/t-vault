@@ -1,12 +1,14 @@
 import React from "react";
 import NavBar from "./components/navbar/navBar";
-import Main from "./components/main/main";
+import Safes from "./components/safes/safes";
 
 function App() {
   return (
     <React.Fragment>
       <NavBar />
-      <Main />
+      <main className="container">
+        <Safes />
+      </main>
     </React.Fragment>
   );
 }
