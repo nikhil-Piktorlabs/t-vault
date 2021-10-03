@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  align-items: center;
+  padding: 1.7rem 0rem 1.7rem 3.8rem;
+  cursor: pointer;
+  min-width: 28rem;
+}
+
+.card--selected {
+  background: linear-gradient(to right, #72134b, #1d212c);
+}
+
+.card__image {
+  width: 3.4rem;
+  height: 3.9rem;
+}
+
+.card__info {
+  margin-left: 1.5rem;
+}
+
+.card__info-time {
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
+  color: #5e627c;
+}

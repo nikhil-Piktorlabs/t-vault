@@ -41,19 +41,15 @@ h3 {
   height: calc(100vh - 7rem);
   overflow: auto;
 }
+
 /* Line */
 
 .hl {
   height: 0.1rem;
-  margin: 0.7rem 0;
   background: #2a2e3e;
 }
 
 /* Input */
-
-.input {
-  outline: none;
-}
 
 .input-group {
   background: #20232e;
@@ -71,9 +67,20 @@ h3 {
   border: 0;
   caret-color: #5e627c;
   color: #5e627c;
+  outline: none;
 }
 
 .input-group .input::placeholder {
   color: #5e627c;
-  font-family: "Roboto";
+}
+
+/* List */
+
+.list {
+  text-decoration: none;
+}
+
+.list__separator {
+  border-bottom: 0.1rem solid rgba(42, 46, 62, 0.5);
+  margin: 0 2.5rem;
 }
