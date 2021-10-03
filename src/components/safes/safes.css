@@ -18,6 +18,11 @@
   margin: 1rem;
 }
 
+.safes-list__count {
+  font-weight: normal;
+  color: #5e627c;
+}
+
 .safes-list__items {
   min-height: calc(100% - 5.1rem);
   height: 0;

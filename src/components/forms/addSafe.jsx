@@ -7,13 +7,14 @@ import { safeAdded } from "../../store/safe";
 import safeIcon from "../../images/safe-icon.png";
 import "./form.css";
 
-const AddSafe = ({ showForm, onShowForm }) => {
-  const [safe, setSafe] = useState({
+const AddSafe = ({ showSafeForm, onShowSafeForm }) => {
+  const newSafe = {
     name: "",
     owner: "",
     type: "personal",
     description: "",
-  });
+  };
+  const [safe, setSafe] = useState(newSafe);
 
   const dispatch = useDispatch();
 
@@ -29,13 +30,8 @@ const AddSafe = ({ showForm, onShowForm }) => {
   const handleClose = (e) => {
     e.preventDefault();
 
-    setSafe({
-      name: "",
-      owner: "",
-      type: "personal",
-      description: "",
-    });
-    onShowForm();
+    setSafe(newSafe);
+    onShowSafeForm();
   };
 
   const handleAddSafe = (e) => {
@@ -46,7 +42,7 @@ const AddSafe = ({ showForm, onShowForm }) => {
   };
 
   return (
-    <div className={`modal${!showForm ? " modal--hidden" : ""}`}>
+    <div className={`modal${!showSafeForm ? " modal--hidden" : ""}`}>
       <form className="form">
         <h1>Create Safe</h1>
         <div className="form__info">

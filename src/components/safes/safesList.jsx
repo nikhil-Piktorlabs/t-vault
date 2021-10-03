@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Card from "../card/card";
 import AddSafe from "../forms/addSafe";
 import SearchBox from "../common/searchBox";
+import { safeDeleted } from "../../store/safe";
 import addIcon from "../../images/add.png";
 import safeIcon from "../../images/safe-icon.png";
 
-const SafesList = () => {
-  const [showForm, setShowForm] = useState(false);
+const SafesList = ({ selectedSafe, onSelectedSafe }) => {
+  const [showSafeForm, setShowSafeForm] = useState(false);
 
   const safes = useSelector((s) => s.safes);
   const count = safes.length;
 
-  const handleShowForm = () => setShowForm((form) => !form);
+  const dispatch = useDispatch();
+
+  const handleShowSafeForm = () => setShowSafeForm((form) => !form);
+
+  const handleDelete = (id) => {
+    dispatch(safeDeleted(id));
+  };
 
   return (
     <article className="safes-list">
       <header className="safes-list__header">
-        <h2 className="safes-list__heading">All Safes</h2>
+        <h2 className="safes-list__heading">
+          All Safes <span className="safes-list__count">({safes.length})</span>
+        </h2>
         <SearchBox />
       </header>
       <div className="hl"></div>
@@ -35,7 +45,13 @@ const SafesList = () => {
         ) : (
           safes.map((safe) => (
             <React.Fragment key={safe.id}>
-              <Card logo={safeIcon} item={safe} />
+              <Card
+                logo={safeIcon}
+                item={safe}
+                selected={safe.id === selectedSafe}
+                onSelectedItem={onSelectedSafe}
+                onDelete={handleDelete}
+              />
               <div className="list__separator"></div>
             </React.Fragment>
           ))
@@ -44,10 +60,13 @@ const SafesList = () => {
           src={addIcon}
           alt="add"
           className="safes-list__add-button"
-          onClick={() => handleShowForm()}
+          onClick={() => handleShowSafeForm()}
         />
       </div>
-      <AddSafe showForm={showForm} onShowForm={handleShowForm} />
+      <AddSafe
+        showSafeForm={showSafeForm}
+        onShowSafeForm={handleShowSafeForm}
+      />
     </article>
   );
 };
