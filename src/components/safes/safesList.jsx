@@ -12,10 +12,7 @@ const SafesList = () => {
   const safes = useSelector((s) => s.safes);
   const count = safes.length;
 
-  const handleShowForm = (e) => {
-    e.preventDefault();
-    setShowForm((form) => !form);
-  };
+  const handleShowForm = () => setShowForm((form) => !form);
 
   return (
     <article className="safes-list">
@@ -24,7 +21,11 @@ const SafesList = () => {
         <SearchBox />
       </header>
       <div className="hl"></div>
-      <div className={`safes-list__empty${count === 0 ? "" : "-not"}`}>
+      <div
+        className={`safes-list__items safes-list__empty${
+          count === 0 ? "" : "-not"
+        }`}
+      >
         {count === 0 ? (
           <div className="safes-list__empty-image">
             <div className="safes-list__caption">
@@ -32,16 +33,18 @@ const SafesList = () => {
             </div>
           </div>
         ) : (
-          <React.Fragment>
-            <Card logo={safeIcon} />
-            <div className="list__separator"></div>
-          </React.Fragment>
+          safes.map((safe) => (
+            <React.Fragment key={safe.id}>
+              <Card logo={safeIcon} item={safe} />
+              <div className="list__separator"></div>
+            </React.Fragment>
+          ))
         )}
         <img
           src={addIcon}
           alt="add"
           className="safes-list__add-button"
-          onClick={(e) => handleShowForm(e)}
+          onClick={() => handleShowForm()}
         />
       </div>
       <AddSafe showForm={showForm} onShowForm={handleShowForm} />
