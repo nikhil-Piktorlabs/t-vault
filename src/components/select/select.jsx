@@ -1,11 +1,16 @@
 import React from "react";
 import "./select.css";
 
-const Select = ({ id, label, onChange }) => {
+const Select = ({ id, label, value, onChange }) => {
   return (
     <div className="select-group">
       <label htmlFor={id}>{label}</label>
-      <select className="select" id={id} onChange={(e) => onChange(e)}>
+      <select
+        className="select"
+        value={value}
+        id={id}
+        onChange={(e) => onChange(e)}
+      >
         <option value="personal">Personal</option>
         <option value="other">Other</option>
       </select>
