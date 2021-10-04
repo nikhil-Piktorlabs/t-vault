@@ -1,22 +1,17 @@
 import React from "react";
-import editIcon from "../../images/edit.png";
-import deleteIcon from "../../images/delete.png";
+import editIcon from "../../assets/images/edit.png";
+import deleteIcon from "../../assets/images/delete.png";
 import "./card.css";
 
-const Card = ({ logo, item, selected, onSelectedItem, onDelete }) => {
+const Card = ({ logo, item, onDelete }) => {
   return (
-    <div
-      className={`card${selected ? " card--selected" : ""}`}
-      onClick={() => onSelectedItem(item.id)}
-    >
+    <div className="card" tabIndex={item.id}>
       <img src={logo} alt="logo" className="card__logo" />
       <div className="card__info">
         <div className="card__info-name">{item.name}</div>
         <div className="card__info-time">Last Updated ...</div>
       </div>
-      <div
-        className={`card__actions${!selected ? " card__actions--hidden" : ""}`}
-      >
+      <div className="card__actions">
         <span className="card__icon-container">
           <img src={editIcon} alt="edit" className="card__icon" />
         </span>

@@ -1,10 +1,11 @@
 import React from "react";
+import "./select.css";
 
-const FormSelect = ({ id, label, onChange }) => {
+const Select = ({ id, label, onChange }) => {
   return (
-    <div className="form__input-group">
+    <div className="select-group">
       <label htmlFor={id}>{label}</label>
-      <select className="form__input" id={id} onChange={(e) => onChange(e)}>
+      <select className="select" id={id} onChange={(e) => onChange(e)}>
         <option value="personal">Personal</option>
         <option value="other">Other</option>
       </select>
@@ -12,4 +13,4 @@ const FormSelect = ({ id, label, onChange }) => {
   );
 };
 
-export default FormSelect;
+export default Select;

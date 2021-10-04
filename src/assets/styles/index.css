@@ -49,31 +49,6 @@ h3 {
   background: #2a2e3e;
 }
 
-/* Input */
-
-.input-group {
-  background: #20232e;
-  display: flex;
-  padding: 0.3rem 1rem;
-}
-
-.input-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.input-group .input {
-  background: #20232e;
-  border: 0;
-  caret-color: #5e627c;
-  color: #5e627c;
-  outline: none;
-}
-
-.input-group .input::placeholder {
-  color: #5e627c;
-}
-
 /* List */
 
 .list {

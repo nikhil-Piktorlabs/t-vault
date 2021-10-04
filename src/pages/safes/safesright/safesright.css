@@ -1,0 +1,12 @@
+.safes-right {
+  background: linear-gradient(to bottom, #151820, #2c3040);
+}
+
+.safes-right__banner {
+  background-image: url("../../../assets/images/safe-banner.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 19rem;
+  margin-top: -0.78rem;
+}

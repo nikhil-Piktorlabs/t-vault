@@ -1,8 +1,9 @@
 import React from "react";
+import "./input.css";
 
-const FormInput = ({ id, label, value, rows, onChange }) => {
+const Input = ({ id, label, value, rows, onChange }) => {
   return (
-    <div className="form__input-group">
+    <div className="input-group">
       <label htmlFor={id}>{label}</label>
       {rows ? (
         <React.Fragment>
@@ -10,11 +11,11 @@ const FormInput = ({ id, label, value, rows, onChange }) => {
             id={id}
             type="text"
             value={value}
-            className="form__input"
+            className="input"
             rows={rows}
             onChange={(e) => onChange(e)}
           />
-          <div className="form__input-help">
+          <div className="input-help">
             Please add a minimum of 10 characters
           </div>
         </React.Fragment>
@@ -23,7 +24,7 @@ const FormInput = ({ id, label, value, rows, onChange }) => {
           id={id}
           type="text"
           value={value}
-          className="form__input"
+          className="input"
           onChange={(e) => onChange(e)}
         />
       )}
@@ -31,4 +32,4 @@ const FormInput = ({ id, label, value, rows, onChange }) => {
   );
 };
 
-export default FormInput;
+export default Input;

@@ -1,0 +1,12 @@
+.button {
+  font-weight: bold;
+  border: none;
+  padding: 1rem 2.4rem;
+  cursor: pointer;
+  color: #e20074;
+}
+
+.button--inverse {
+  color: #fff;
+  background: #e20074;
+}

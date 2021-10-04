@@ -1,0 +1,7 @@
+.safes {
+  display: grid;
+  grid-template: auto / 40% 60%;
+  margin: 5.4rem 19rem;
+  min-height: 40rem;
+  height: calc(100vh - 17.8rem);
+}

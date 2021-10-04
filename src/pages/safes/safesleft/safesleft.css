@@ -1,43 +1,35 @@
-.safes {
-  display: grid;
-  grid-template: auto / 40% 60%;
-  margin: 5.4rem 19rem;
-  min-height: 40rem;
-  height: calc(100vh - 17.8rem);
-}
-
-.safes-list {
+.safes-left {
   background: #151820;
   position: relative;
 }
 
-.safes-list__header {
+.safes-left__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem;
 }
 
-.safes-list__count {
+.safes-left__count {
   font-weight: normal;
   color: #5e627c;
 }
 
-.safes-list__items {
+.safes-left__items {
   min-height: calc(100% - 5.1rem);
   height: 0;
   overflow: auto;
 }
 
-.safes-list__empty {
+.safes-left__empty {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.safes-list__empty-image {
-  background-image: url("../../images/safe.png");
+.safes-left__empty-image {
+  background-image: url("../../../assets/images/safe.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -48,35 +40,22 @@
   position: relative;
 }
 
-.safes-list__caption {
+.safes-left__caption {
   position: absolute;
   bottom: 2.7rem;
   font-size: 1.2rem;
 }
 
-.safes-list__add-button {
+.safes-left__add-button {
   width: 6.4rem;
   height: 6.4rem;
   cursor: pointer;
 }
 
-.safes-list__empty-not .safes-list__add-button {
+.safes-left__empty-not .safes-left__add-button {
   position: absolute;
   bottom: 2.5rem;
   right: 3rem;
-}
-
-.secrets-list {
-  background: linear-gradient(to bottom, #151820, #2c3040);
-}
-
-.secrets-list__banner {
-  background-image: url("../../images/safe-banner.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  height: 19rem;
-  margin-top: -0.78rem;
 }
 
 @media screen and (min-width: 901px) and (max-width: 1150px) {
@@ -105,16 +84,16 @@
     height: calc(100vh - 11rem);
   }
 
-  .safes-list__header {
+  .safes-left__header {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .safes-list__heading {
+  .safes-left__heading {
     margin-bottom: 1rem;
   }
 
-  .safes-list__items {
+  .safes-left__items {
     min-height: calc(100% - 8.42rem);
   }
 }

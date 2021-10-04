@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "./components/navbar/navBar";
-import Safes from "./components/safes/safes";
+import NavBar from "./parts/navbar/navBar";
+import Safes from "./pages/safes/safes";
 
 function App() {
   return (

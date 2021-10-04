@@ -5,7 +5,7 @@
   min-width: 28rem;
 }
 
-.card--selected {
+.card:focus {
   background: linear-gradient(to right, #72134b, #1d212c);
 }
 
@@ -25,11 +25,12 @@
 }
 
 .card__actions {
+  display: none;
   margin-left: auto;
 }
 
-.card__actions--hidden {
-  display: none;
+.card:focus .card__actions {
+  display: block;
 }
 
 .card__icon-container {

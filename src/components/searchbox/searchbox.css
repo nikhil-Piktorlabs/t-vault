@@ -1,0 +1,22 @@
+.search-box {
+  background: #20232e;
+  display: flex;
+  padding: 0.3rem 1rem;
+}
+
+.search-box__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.search-box__input {
+  background: #20232e;
+  border: 0;
+  caret-color: #5e627c;
+  color: #5e627c;
+  outline: none;
+}
+
+.search-box__input::placeholder {
+  color: #5e627c;
+}

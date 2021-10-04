@@ -1,0 +1,12 @@
+.select-group {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.select {
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 0.8rem;
+}
