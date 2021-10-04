@@ -4,7 +4,10 @@ const safeReducer = (state = [], action) => {
   switch (action.type) {
     case "addSafe": {
       idCount++;
-      return [...state, { id: idCount, ...action.payload }];
+      return [
+        ...state,
+        { id: idCount, ...action.payload, updated: new Date() },
+      ];
     }
     case "deleteSafe":
       return state.filter((s) => s.id !== action.payload.id);

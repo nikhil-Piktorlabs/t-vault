@@ -1,17 +1,24 @@
 import React from "react";
+import moment from "moment";
 import editIcon from "../../assets/images/edit.png";
 import deleteIcon from "../../assets/images/delete.png";
 import "./card.css";
 
-const Card = ({ logo, item, onDelete }) => {
+const Card = ({ logo, item, onDelete, selected, onClick }) => {
   return (
-    <div className="card" tabIndex={item.id}>
+    <div
+      className={`card ${selected && "card--selected"}`}
+      tabIndex={item.id}
+      onClick={() => onClick(item.id)}
+    >
       <img src={logo} alt="logo" className="card__logo" />
       <div className="card__info">
         <div className="card__info-name">{item.name}</div>
-        <div className="card__info-time">Last Updated ...</div>
+        <div className="card__info-time">
+          Last Updated: {moment(item.updated).fromNow()}
+        </div>
       </div>
-      <div className="card__actions">
+      <div className={`card__actions ${selected && "card__actions--show"}`}>
         <span className="card__icon-container">
           <img src={editIcon} alt="edit" className="card__icon" />
         </span>

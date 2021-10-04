@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Card from "../../../components/card/card";
-import SafesForm from "../safesform/safesForm";
+import SafesForm from "./safesform/safesForm";
 import SearchBox from "../../../components/searchbox/searchBox";
 import { safeDeleted } from "../../../store/safes/actions";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
 import "./safesleft.css";
 
-const SafesLeft = () => {
+const SafesLeft = ({ selectedSafe, setSelectedSafe }) => {
   const [form, setForm] = useState(false);
 
-  const safes = useSelector((s) => s.safes);
+  const safes = useSelector((state) => state.safes);
   const count = safes.length;
 
   const dispatch = useDispatch();
@@ -20,7 +20,12 @@ const SafesLeft = () => {
   const handleForm = () => setForm((form) => !form);
 
   const handleDelete = (id) => {
+    setSelectedSafe(0);
     dispatch(safeDeleted(id));
+  };
+
+  const handleSelect = (id) => {
+    setSelectedSafe(id);
   };
 
   return (
@@ -47,7 +52,13 @@ const SafesLeft = () => {
           <ul className="list">
             {safes.map((safe) => (
               <li key={safe.id} className="list__item">
-                <Card logo={safeIcon} item={safe} onDelete={handleDelete} />
+                <Card
+                  logo={safeIcon}
+                  item={safe}
+                  onDelete={handleDelete}
+                  selected={selectedSafe === safe.id}
+                  onClick={handleSelect}
+                />
               </li>
             ))}
           </ul>

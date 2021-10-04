@@ -49,6 +49,11 @@ h3 {
   background: #2a2e3e;
 }
 
+.hl-1 {
+  height: 0.3rem;
+  background-color: #222632;
+}
+
 /* List */
 
 .list {

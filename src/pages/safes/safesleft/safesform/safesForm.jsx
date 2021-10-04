@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import ModalForm from "../../../components/modalform/modalForm";
-import Input from "../../../components/input/input";
-import Select from "../../../components/select/select";
-import Button from "../../../components/button/button";
-import { safeAdded } from "../../../store/safes/actions";
-import safeIcon from "../../../assets/images/safe-icon.png";
+import ModalForm from "../../../../components/modalform/modalForm";
+import Input from "../../../../components/input/input";
+import Select from "../../../../components/select/select";
+import Button from "../../../../components/button/button";
+import { safeAdded } from "../../../../store/safes/actions";
+import safeIcon from "../../../../assets/images/safe.png";
 import "./safesform.css";
 
 const SafesForm = ({ form, onForm }) => {
@@ -78,8 +78,8 @@ const SafesForm = ({ form, onForm }) => {
         onChange={handleChange}
       />
       <div className="safe-form__button-group">
-        <Button label="Cancel" onClick={handleClose} />
-        <Button label="+ Create" inverse onClick={handleAdd} />
+        <Button label="Cancel" inverse onClick={handleClose} />
+        <Button label="+ Create" onClick={handleAdd} />
       </div>
     </ModalForm>
   );

@@ -5,7 +5,7 @@
   min-width: 28rem;
 }
 
-.card:focus {
+.card--selected {
   background: linear-gradient(to right, #72134b, #1d212c);
 }
 
@@ -29,7 +29,7 @@
   margin-left: auto;
 }
 
-.card:focus .card__actions {
+.card__actions--show {
   display: block;
 }
 
@@ -43,12 +43,12 @@
   border-radius: 100%;
 }
 
-.card__icon {
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
 .card__icon-container:hover {
   background: rgba(90, 99, 122, 0.2);
   cursor: pointer;
+}
+
+.card__icon {
+  width: 1.4rem;
+  height: 1.4rem;
 }
