@@ -4,9 +4,9 @@ import secretIcon from "../../../assets/images/secret.png";
 import Button from "../../../components/button/button";
 import "./safesright.css";
 
-const SafesRight = ({ selectedSafe }) => {
+const SafesRight = () => {
   const safes = useSelector((state) => state.safes);
-  const safe = safes.find((s) => s.id === selectedSafe);
+  const safe = safes.find((s) => s.selected === true);
 
   return (
     <section className="safes-right">
@@ -16,7 +16,7 @@ const SafesRight = ({ selectedSafe }) => {
           <p className="safes-right__safe-description">
             {safe
               ? safe.description
-              : "Create a Safe to see your secrets, folders and permissions here"}
+              : "Create a Safe to see your secrets, fsolders and permissions here"}
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@ const SafesRight = ({ selectedSafe }) => {
             <span className="secrets__caption-highlight">Secrets</span> to view
             them all here
           </div>
-          <Button label="+ Add" disabled />
+          <Button label="+ Add" disabled={!safe && true} />
         </div>
       </div>
     </section>

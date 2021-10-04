@@ -4,13 +4,14 @@ import { useDispatch } from "react-redux";
 import Card from "../../../components/card/card";
 import SafesForm from "./safesform/safesForm";
 import SearchBox from "../../../components/searchbox/searchBox";
-import { safeDeleted } from "../../../store/safes/actions";
+import { safeDeleted, safeSelected } from "../../../store/safes/actions";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
 import "./safesleft.css";
 
-const SafesLeft = ({ selectedSafe, setSelectedSafe }) => {
+const SafesLeft = () => {
   const [form, setForm] = useState(false);
+  const [edit, setEdit] = useState(false);
 
   const safes = useSelector((state) => state.safes);
   const count = safes.length;
@@ -19,13 +20,21 @@ const SafesLeft = ({ selectedSafe, setSelectedSafe }) => {
 
   const handleForm = () => setForm((form) => !form);
 
-  const handleDelete = (id) => {
-    setSelectedSafe(0);
+  const handleDelete = (e, id) => {
+    e.stopPropagation();
+
     dispatch(safeDeleted(id));
   };
 
+  const handleEdit = (e) => {
+    e.stopPropagation();
+
+    setEdit(true);
+    handleForm();
+  };
+
   const handleSelect = (id) => {
-    setSelectedSafe(id);
+    dispatch(safeSelected(id));
   };
 
   return (
@@ -55,9 +64,10 @@ const SafesLeft = ({ selectedSafe, setSelectedSafe }) => {
                 <Card
                   logo={safeIcon}
                   item={safe}
-                  onDelete={handleDelete}
-                  selected={selectedSafe === safe.id}
+                  selected={safe.selected}
                   onClick={handleSelect}
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
                 />
               </li>
             ))}
@@ -70,7 +80,12 @@ const SafesLeft = ({ selectedSafe, setSelectedSafe }) => {
           onClick={() => handleForm()}
         />
       </div>
-      <SafesForm form={form} onForm={handleForm} />
+      <SafesForm
+        form={form}
+        onForm={handleForm}
+        edit={edit}
+        setEdit={setEdit}
+      />
     </article>
   );
 };

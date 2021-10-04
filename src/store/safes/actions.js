@@ -1,7 +1,7 @@
-export const safeAdded = (details) => {
+export const safeAdded = (safe) => {
   return {
     type: "addSafe",
-    payload: details,
+    payload: safe,
   };
 };
 
@@ -11,5 +11,21 @@ export const safeDeleted = (id) => {
     payload: {
       id,
     },
+  };
+};
+
+export const safeSelected = (id) => {
+  return {
+    type: "selectSafe",
+    payload: {
+      id,
+    },
+  };
+};
+
+export const safeUpdated = (safe) => {
+  return {
+    type: "updateSafe",
+    payload: safe,
   };
 };

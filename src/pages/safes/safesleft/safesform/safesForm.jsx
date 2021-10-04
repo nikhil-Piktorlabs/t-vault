@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ModalForm from "../../../../components/modalform/modalForm";
 import Input from "../../../../components/input/input";
 import Select from "../../../../components/select/select";
 import Button from "../../../../components/button/button";
-import { safeAdded } from "../../../../store/safes/actions";
-import safeIcon from "../../../../assets/images/safe.png";
+import { safeAdded, safeUpdated } from "../../../../store/safes/actions";
+import safeIcon from "../../../../assets/images/safe-icon.png";
 import "./safesform.css";
 
-const SafesForm = ({ form, onForm }) => {
+const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const newSafe = {
     name: "",
     owner: "",
@@ -16,6 +16,7 @@ const SafesForm = ({ form, onForm }) => {
     description: "",
   };
   const [safe, setSafe] = useState(newSafe);
+  const safes = useSelector((state) => state.safes);
 
   const dispatch = useDispatch();
 
@@ -31,6 +32,7 @@ const SafesForm = ({ form, onForm }) => {
   const handleClose = (e) => {
     e.preventDefault();
 
+    setEdit(false);
     setSafe(newSafe);
     onForm();
   };
@@ -41,6 +43,19 @@ const SafesForm = ({ form, onForm }) => {
     dispatch(safeAdded(safe));
     handleClose(e);
   };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    dispatch(safeUpdated(safe));
+    handleClose(e);
+  };
+
+  useEffect(() => {
+    if (edit) {
+      setSafe(safes.find((s) => s.selected === true));
+    }
+  }, [edit, safes]);
 
   return (
     <ModalForm showModal={form}>
@@ -79,7 +94,11 @@ const SafesForm = ({ form, onForm }) => {
       />
       <div className="safe-form__button-group">
         <Button label="Cancel" inverse onClick={handleClose} />
-        <Button label="+ Create" onClick={handleAdd} />
+        {edit ? (
+          <Button label="Update" onClick={handleUpdate} />
+        ) : (
+          <Button label="+ Create" onClick={handleAdd} />
+        )}
       </div>
     </ModalForm>
   );
