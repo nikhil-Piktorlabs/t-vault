@@ -10,14 +10,14 @@ import safeIcon from "../../../assets/images/safe-icon.png";
 import "./safesleft.css";
 
 const SafesLeft = () => {
-  const [showSafeForm, setShowSafeForm] = useState(false);
+  const [form, setForm] = useState(false);
 
   const safes = useSelector((s) => s.safes);
   const count = safes.length;
 
   const dispatch = useDispatch();
 
-  const handleShowSafeForm = () => setShowSafeForm((form) => !form);
+  const handleForm = () => setForm((form) => !form);
 
   const handleDelete = (id) => {
     dispatch(safeDeleted(id));
@@ -33,35 +33,33 @@ const SafesLeft = () => {
       </header>
       <div className="hl"></div>
       <div
-        className={`safes-left__items safes-left__empty${
-          count === 0 ? "" : "-not"
+        className={`safes-left__list safes-left__empty${
+          count === 0 ? "" : "--not"
         }`}
       >
         {count === 0 ? (
-          <div className="safes-left__empty-image">
+          <div className="safes-left__image">
             <div className="safes-left__caption">
               Create a Safe and get started!
             </div>
           </div>
         ) : (
-          safes.map((safe) => (
-            <React.Fragment key={safe.id}>
-              <Card logo={safeIcon} item={safe} onDelete={handleDelete} />
-              <div className="list__separator"></div>
-            </React.Fragment>
-          ))
+          <ul className="list">
+            {safes.map((safe) => (
+              <li key={safe.id} className="list__item">
+                <Card logo={safeIcon} item={safe} onDelete={handleDelete} />
+              </li>
+            ))}
+          </ul>
         )}
         <img
           src={addIcon}
           alt="add"
           className="safes-left__add-button"
-          onClick={() => handleShowSafeForm()}
+          onClick={() => handleForm()}
         />
       </div>
-      <SafesForm
-        showSafeForm={showSafeForm}
-        onShowSafeForm={handleShowSafeForm}
-      />
+      <SafesForm form={form} onForm={handleForm} />
     </article>
   );
 };

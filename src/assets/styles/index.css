@@ -52,10 +52,12 @@ h3 {
 /* List */
 
 .list {
-  text-decoration: none;
+  list-style: none;
 }
 
-.list__separator {
+.list__item::after {
+  content: "";
+  display: block;
   border-bottom: 0.1rem solid rgba(42, 46, 62, 0.5);
   margin: 0 2.5rem;
 }

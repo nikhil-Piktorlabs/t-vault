@@ -8,7 +8,7 @@ import { safeAdded } from "../../../store/safes/actions";
 import safeIcon from "../../../assets/images/safe-icon.png";
 import "./safesform.css";
 
-const SafesForm = ({ showSafeForm, onShowSafeForm }) => {
+const SafesForm = ({ form, onForm }) => {
   const newSafe = {
     name: "",
     owner: "",
@@ -19,7 +19,7 @@ const SafesForm = ({ showSafeForm, onShowSafeForm }) => {
 
   const dispatch = useDispatch();
 
-  const handleSafeChange = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
 
     const { id, value } = e.currentTarget;
@@ -32,10 +32,10 @@ const SafesForm = ({ showSafeForm, onShowSafeForm }) => {
     e.preventDefault();
 
     setSafe(newSafe);
-    onShowSafeForm();
+    onForm();
   };
 
-  const handleAddSafe = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault();
 
     dispatch(safeAdded(safe));
@@ -43,7 +43,7 @@ const SafesForm = ({ showSafeForm, onShowSafeForm }) => {
   };
 
   return (
-    <ModalForm showModal={showSafeForm}>
+    <ModalForm showModal={form}>
       <h1>Create Safe</h1>
       <div className="safe-form__info">
         <img src={safeIcon} alt="logo" className="safe-form__logo" />A Safe is a
@@ -56,30 +56,30 @@ const SafesForm = ({ showSafeForm, onShowSafeForm }) => {
         label="Safe Name"
         id="name"
         value={safe.name}
-        onChange={handleSafeChange}
+        onChange={handleChange}
       />
       <Input
         label="Owner"
         id="owner"
         value={safe.owner}
-        onChange={handleSafeChange}
+        onChange={handleChange}
       />
       <Select
         label="Type"
         id="type"
         value={safe.type}
-        onChange={handleSafeChange}
+        onChange={handleChange}
       />
       <Input
         label="Description"
         id="description"
         value={safe.description}
         rows={2}
-        onChange={handleSafeChange}
+        onChange={handleChange}
       />
       <div className="safe-form__button-group">
         <Button label="Cancel" onClick={handleClose} />
-        <Button label="+ Create" inverse onClick={handleAddSafe} />
+        <Button label="+ Create" inverse onClick={handleAdd} />
       </div>
     </ModalForm>
   );

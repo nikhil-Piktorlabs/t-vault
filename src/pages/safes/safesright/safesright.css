@@ -10,3 +10,9 @@
   height: 19rem;
   margin-top: -0.78rem;
 }
+
+@media screen and (max-width: 900px) {
+  .safes-right {
+    display: none;
+  }
+}

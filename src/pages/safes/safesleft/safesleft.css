@@ -15,7 +15,7 @@
   color: #5e627c;
 }
 
-.safes-left__items {
+.safes-left__list {
   min-height: calc(100% - 5.1rem);
   height: 0;
   overflow: auto;
@@ -28,7 +28,7 @@
   justify-content: center;
 }
 
-.safes-left__empty-image {
+.safes-left__image {
   background-image: url("../../../assets/images/safe.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -52,38 +52,13 @@
   cursor: pointer;
 }
 
-.safes-left__empty-not .safes-left__add-button {
+.safes-left__empty--not .safes-left__add-button {
   position: absolute;
   bottom: 2.5rem;
   right: 3rem;
 }
 
-@media screen and (min-width: 901px) and (max-width: 1150px) {
-  .safes {
-    margin: 5.4rem;
-    height: calc(100vh - 17.8rem);
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .safes {
-    margin: 3rem;
-    grid-template-columns: auto;
-    height: calc(100vh - 13rem);
-  }
-
-  .secrets-list {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 424px) {
-  .safes {
-    margin: 3rem 1rem 1rem 1rem;
-    grid-template-columns: auto;
-    height: calc(100vh - 11rem);
-  }
-
   .safes-left__header {
     flex-direction: column;
     align-items: stretch;
@@ -93,7 +68,7 @@
     margin-bottom: 1rem;
   }
 
-  .safes-left__items {
+  .safes-left__list {
     min-height: calc(100% - 8.42rem);
   }
 }
