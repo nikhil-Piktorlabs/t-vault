@@ -60,6 +60,11 @@ h3 {
   list-style: none;
 }
 
+.list-nav {
+  height: 100%;
+  display: inline-block;
+}
+
 .list__item::after {
   content: "";
   display: block;
@@ -68,4 +73,13 @@ h3 {
 
 .list__item--margin::after {
   margin: 0 2.5rem;
+}
+
+.list__item-nav {
+  display: inline-block;
+  height: 100%;
+}
+
+.list__item-nav:hover {
+  background: linear-gradient(to top, #72134b, #1d212c);
 }
