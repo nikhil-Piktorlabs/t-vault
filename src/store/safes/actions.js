@@ -14,6 +14,13 @@ export const safeDeleted = (id) => {
   };
 };
 
+export const safeUpdated = (safe) => {
+  return {
+    type: "updateSafe",
+    payload: safe,
+  };
+};
+
 export const safeSelected = (id) => {
   return {
     type: "selectSafe",
@@ -23,9 +30,9 @@ export const safeSelected = (id) => {
   };
 };
 
-export const safeUpdated = (safe) => {
+export const safeSecretAdded = (secret) => {
   return {
-    type: "updateSafe",
-    payload: safe,
+    type: "addSafeSecret",
+    payload: secret,
   };
 };

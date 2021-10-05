@@ -25,6 +25,12 @@ const safeReducer = (state = [], action) => {
           ? { ...s, selected: true }
           : { ...s, selected: false }
       );
+    case "addSafeSecret":
+      return state.map((s) =>
+        s.selected === true
+          ? { ...s, secrets: [...s.secrets, action.payload] }
+          : s
+      );
     default:
       return state;
   }

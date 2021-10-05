@@ -1,0 +1,55 @@
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import Input from "../../../../components/input/input";
+import Button from "../../../../components/button/button";
+import ModalForm from "../../../../components/modalform/modalForm";
+import { safeSecretAdded } from "../../../../store/safes/actions";
+import "./secretsform.css";
+
+const SecretsForm = ({ form, onForm }) => {
+  const newSecret = { name: "" };
+  const [secret, setSecret] = useState(newSecret);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    const { id, value } = e.currentTarget;
+    const updatedSecret = { ...secret, [id]: value };
+
+    setSecret(updatedSecret);
+  };
+
+  const handleClose = (e) => {
+    e.preventDefault();
+
+    setSecret(newSecret);
+    onForm(false);
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+
+    dispatch(safeSecretAdded(secret));
+    handleClose(e);
+  };
+
+  return (
+    <ModalForm showModal={form}>
+      <h1 className="secrets-form__heading">Add Folder</h1>
+      <Input
+        label="Folder Name"
+        id="name"
+        value={secret.name}
+        onChange={handleChange}
+      />
+      <div className="secrets-form__button-group">
+        <Button label="Cancel" inverse onClick={handleClose} />
+        <Button label="Save" onClick={handleAdd} />
+      </div>
+    </ModalForm>
+  );
+};
+
+export default SecretsForm;

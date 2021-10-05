@@ -1,16 +1,16 @@
-.safe-form__info {
+.safes-form__info {
   color: #c4c4c4;
   margin: 3rem 0;
 }
 
-.safe-form__logo {
+.safes-form__logo {
   float: left;
   width: 5rem;
   height: 5.7rem;
   margin-right: 2rem;
 }
 
-.safe-form__button-group {
+.safes-form__button-group {
   display: flex;
   justify-content: flex-end;
 }
