@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../components/button/button";
-import Card from "../../../components/card/card";
+import RightCard from "../../../components/card/rightCard";
 import SecretsForm from "./secretsform/secretsForm";
+import { safeSecretDeleted } from "../../../store/safes/actions";
 import secretIcon from "../../../assets/images/secret.png";
 import folderIcon from "../../../assets/images/folder.png";
+import folderIconActive from "../../../assets/images/folder-active.png";
+import addFolderIcon from "../../../assets/images/add-folder.png";
+import addFolderActiveIcon from "../../../assets/images/add-folder-active.png";
 import "./safesright.css";
 
 const SafesRight = () => {
@@ -16,10 +20,16 @@ const SafesRight = () => {
   const secrets = safe ? safe.secrets : null;
   const count = secrets ? secrets.length : 0;
 
+  const dispatch = useDispatch();
+
   const handleForm = (e) => {
     e.preventDefault();
 
     setForm((form) => !form);
+  };
+
+  const handleDelete = (index) => {
+    dispatch(safeSecretDeleted(index));
   };
 
   return (
@@ -30,12 +40,24 @@ const SafesRight = () => {
           <p className="safes-right__safe-description">
             {safe
               ? safe.description
-              : "Create a Safe to see your secrets, fsolders and permissions here"}
+              : "Create a Safe to see your secrets, folders and permissions here"}
           </p>
         </div>
       </div>
       <div className="secrets">
-        <div className="secrets__heading">Secrets</div>
+        <header className="secrets__header">
+          <h1 className="secrets__heading">Secrets</h1>
+          <img
+            className={`secrets__add-folder-icon${
+              secrets ? " secrets__add-folder-icon--clickable" : ""
+            }`}
+            src={!secrets ? addFolderIcon : addFolderActiveIcon}
+            alt="add folder"
+            onClick={(e) => {
+              if (secrets) handleForm(e);
+            }}
+          />
+        </header>
         <div className="hl-1"></div>
         <div className="secrets__count">{count} Secrets</div>
         <div className={`secrets__list${count === 0 ? " secrets__empty" : ""}`}>
@@ -58,7 +80,13 @@ const SafesRight = () => {
             <ul className="list">
               {secrets.map((secret, index) => (
                 <li className="list__item" key={index}>
-                  <Card logo={folderIcon} item={secret} />
+                  <RightCard
+                    logo={folderIcon}
+                    logoActive={folderIconActive}
+                    item={secret}
+                    onDelete={handleDelete}
+                    index={index}
+                  />
                 </li>
               ))}
             </ul>

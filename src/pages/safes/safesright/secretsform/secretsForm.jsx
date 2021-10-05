@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Input from "../../../../components/input/input";
 import Button from "../../../../components/button/button";
-import ModalForm from "../../../../components/modalform/modalForm";
+import ModalForm from "../../../../components/modal/modal";
 import { safeSecretAdded } from "../../../../store/safes/actions";
 import "./secretsform.css";
 
@@ -37,17 +37,19 @@ const SecretsForm = ({ form, onForm }) => {
 
   return (
     <ModalForm showModal={form}>
-      <h1 className="secrets-form__heading">Add Folder</h1>
-      <Input
-        label="Folder Name"
-        id="name"
-        value={secret.name}
-        onChange={handleChange}
-      />
-      <div className="secrets-form__button-group">
-        <Button label="Cancel" inverse onClick={handleClose} />
-        <Button label="Save" onClick={handleAdd} />
-      </div>
+      <form className="secrets-form">
+        <h1 className="secrets-form__heading">Add Folder</h1>
+        <Input
+          label="Folder Name"
+          id="name"
+          value={secret.name}
+          onChange={handleChange}
+        />
+        <div className="secrets-form__button-group">
+          <Button label="Cancel" inverse onClick={handleClose} />
+          <Button label="Save" onClick={handleAdd} />
+        </div>
+      </form>
     </ModalForm>
   );
 };

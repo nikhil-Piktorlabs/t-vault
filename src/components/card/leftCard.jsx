@@ -4,11 +4,10 @@ import editIcon from "../../assets/images/edit.png";
 import deleteIcon from "../../assets/images/delete.png";
 import "./card.css";
 
-const Card = ({ logo, item, onEdit, onDelete, selected, onClick }) => {
+const LeftCard = ({ logo, item, onEdit, onDelete, selected, onClick }) => {
   return (
     <div
       className={`card ${selected && "card--selected"}`}
-      tabIndex={item.id}
       onClick={() => onClick(item.id)}
     >
       <img src={logo} alt="logo" className="card__logo" />
@@ -33,4 +32,4 @@ const Card = ({ logo, item, onEdit, onDelete, selected, onClick }) => {
   );
 };
 
-export default Card;
+export default LeftCard;

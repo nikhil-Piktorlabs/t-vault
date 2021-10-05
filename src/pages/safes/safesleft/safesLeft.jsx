@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import Card from "../../../components/card/card";
+import LeftCard from "../../../components/card/leftCard";
 import SafesForm from "./safesform/safesForm";
 import SearchBox from "../../../components/searchbox/searchBox";
 import { safeDeleted, safeSelected } from "../../../store/safes/actions";
@@ -60,8 +60,8 @@ const SafesLeft = () => {
         ) : (
           <ul className="list">
             {safes.map((safe) => (
-              <li key={safe.id} className="list__item">
-                <Card
+              <li key={safe.id} className="list__item list__item--margin">
+                <LeftCard
                   logo={safeIcon}
                   item={safe}
                   selected={safe.selected}

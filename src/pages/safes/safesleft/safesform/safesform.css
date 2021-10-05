@@ -1,3 +1,23 @@
+.safes-form {
+  background: #2a2e3e;
+  padding: 6rem;
+  margin: auto;
+  width: 45%;
+}
+
+@media screen and (max-width: 1000px) {
+  .safes-form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .safes-form {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
 .safes-form__info {
   color: #c4c4c4;
   margin: 3rem 0;

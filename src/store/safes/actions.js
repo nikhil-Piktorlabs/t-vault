@@ -8,9 +8,7 @@ export const safeAdded = (safe) => {
 export const safeDeleted = (id) => {
   return {
     type: "deleteSafe",
-    payload: {
-      id,
-    },
+    payload: id,
   };
 };
 
@@ -24,9 +22,7 @@ export const safeUpdated = (safe) => {
 export const safeSelected = (id) => {
   return {
     type: "selectSafe",
-    payload: {
-      id,
-    },
+    payload: id,
   };
 };
 
@@ -34,5 +30,12 @@ export const safeSecretAdded = (secret) => {
   return {
     type: "addSafeSecret",
     payload: secret,
+  };
+};
+
+export const safeSecretDeleted = (index) => {
+  return {
+    type: "deleteSafeSecret",
+    payload: index,
   };
 };

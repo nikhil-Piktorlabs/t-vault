@@ -31,9 +31,25 @@
   height: calc(100% - 17.22rem);
 }
 
-.secrets__heading {
+.secrets__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.4rem 1.6rem 1.8rem 1.6rem;
+}
+
+.secrets__heading {
   font-size: 1.6rem;
+}
+
+.secrets__add-folder-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  float: right;
+}
+
+.secrets__add-folder-icon--clickable {
+  cursor: pointer;
 }
 
 .secrets__count {

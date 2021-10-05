@@ -9,9 +9,31 @@
   background: linear-gradient(to right, #72134b, #1d212c);
 }
 
+.card--right {
+  background: #1c1f29;
+}
+
+.card--right:hover {
+  background: linear-gradient(to right, #72134b, #1d212c);
+}
+
 .card__logo {
-  width: 3.4rem;
-  height: 3.9rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.card__logo-active {
+  width: 4rem;
+  height: 4rem;
+  display: none;
+}
+
+.card--right:hover .card__logo {
+  display: none;
+}
+
+.card--right:hover .card__logo-active {
+  display: block;
 }
 
 .card__info {
@@ -27,6 +49,10 @@
 .card__actions {
   display: none;
   margin-left: auto;
+}
+
+.card--right:hover .card__actions {
+  display: block;
 }
 
 .card__actions--show {
