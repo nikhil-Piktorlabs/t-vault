@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import NavBar from "./parts/navbar/navBar";
 import Home from "./pages/home/home";
 import Safes from "./pages/safes/safes";
