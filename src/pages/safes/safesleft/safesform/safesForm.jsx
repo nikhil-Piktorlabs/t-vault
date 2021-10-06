@@ -41,7 +41,7 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const handleAdd = (e) => {
     e.preventDefault();
 
-    if (!edit && safes.filter((s) => s.name === safe.name).length > 0) {
+    if (safes.filter((s) => s.name === safe.name).length > 0) {
       alert("A Safe with the same name already exists!");
       return;
     }
