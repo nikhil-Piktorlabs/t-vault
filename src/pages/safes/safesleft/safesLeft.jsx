@@ -5,6 +5,7 @@ import LeftCard from "../../../components/card/leftCard";
 import SafesForm from "./safesform/safesForm";
 import SearchBox from "../../../components/searchbox/searchBox";
 import { safeDeleted, safeSelected } from "../../../store/safes/actions";
+import filterArrays from "../../../utils/filter";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
 import "./safesleft.css";
@@ -12,9 +13,13 @@ import "./safesleft.css";
 const SafesLeft = () => {
   const [form, setForm] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [query, setQuery] = useState("");
 
   const safes = useSelector((state) => state.safes);
   const count = safes.length;
+
+  const filteredSafes = filterArrays(safes, query);
+  const filteredCount = filteredSafes.length;
 
   const dispatch = useDispatch();
 
@@ -37,13 +42,17 @@ const SafesLeft = () => {
     dispatch(safeSelected(id));
   };
 
+  const handleQuery = (query) => {
+    setQuery(query);
+  };
+
   return (
     <article className="safes-left">
       <header className="safes-left__header">
         <h2 className="safes-left__heading">
-          All Safes <span className="safes-left__count">({safes.length})</span>
+          All Safes <span className="safes-left__count">({filteredCount})</span>
         </h2>
-        <SearchBox />
+        <SearchBox searchQuery={query} onQuery={handleQuery} />
       </header>
       <div className="hl"></div>
       <div
@@ -59,7 +68,7 @@ const SafesLeft = () => {
           </div>
         ) : (
           <ul className="list">
-            {safes.map((safe) => (
+            {filteredSafes.map((safe) => (
               <li key={safe.id} className="list__item list__item--margin">
                 <LeftCard
                   logo={safeIcon}
