@@ -35,6 +35,13 @@ const SecretsForm = ({ form, onForm }) => {
     handleClose(e);
   };
 
+  const validateSecretsForm = () => {
+    const matched = secret.name.match(/\w/g);
+    if (matched && matched.length >= 3) return false;
+
+    return true;
+  };
+
   return (
     <ModalForm showModal={form}>
       <form className="secrets-form">
@@ -44,10 +51,18 @@ const SecretsForm = ({ form, onForm }) => {
           id="name"
           value={secret.name}
           onChange={handleChange}
-        />
+          help
+        >
+          Please enter a minimum of 3 characters lowercase alphabets, numbers
+          and underscores only.
+        </Input>
         <div className="secrets-form__button-group">
           <Button label="Cancel" inverse onClick={handleClose} />
-          <Button label="Save" onClick={handleAdd} />
+          <Button
+            label="Save"
+            onClick={handleAdd}
+            disabled={validateSecretsForm()}
+          />
         </div>
       </form>
     </ModalForm>

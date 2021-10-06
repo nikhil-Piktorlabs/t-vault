@@ -36,6 +36,19 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
+      <div className="nav__end">
+        <span className="nav__end__item">
+          <i
+            className="fa fa-file-text-o nav__end__icon"
+            aria-hidden="true"
+          ></i>
+          Documentation
+        </span>
+        <span className="nav__end__item">
+          <i className="fa fa-user-o nav__end__icon" aria-hidden="true"></i>
+          (Admin) Davis R.
+        </span>
+      </div>
     </header>
   );
 };

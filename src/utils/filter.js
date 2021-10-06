@@ -1,9 +1,9 @@
 function filterArrays(items, value) {
   if (value === "") return items;
 
-  return items.filter((item) =>
-    item.name.toLowerCase().includes(value.toLowerCase())
-  );
+  const regex = new RegExp(`\\b${value.toLowerCase()}`);
+
+  return items.filter((item) => regex.test(item.name.toLowerCase()));
 }
 
 export default filterArrays;

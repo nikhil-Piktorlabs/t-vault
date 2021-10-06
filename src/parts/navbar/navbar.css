@@ -74,6 +74,19 @@
     align-items: center;
     justify-content: center;
   }
+
+  .nav__end {
+    margin-left: auto;
+    display: block;
+  }
+
+  .nav__end__item {
+    margin-left: 2rem;
+  }
+
+  .nav__end__icon {
+    margin-right: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 945px) and (max-width: 1150px) {
@@ -85,5 +98,11 @@
 @media screen and (min-width: 1151px) {
   .nav {
     padding: 0 19rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .nav__end {
+    display: none;
   }
 }

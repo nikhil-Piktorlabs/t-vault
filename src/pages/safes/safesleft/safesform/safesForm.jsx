@@ -41,6 +41,11 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const handleAdd = (e) => {
     e.preventDefault();
 
+    if (!edit && safes.filter((s) => s.name === safe.name).length > 0) {
+      alert("A Safe with the same name already exists!");
+      return;
+    }
+
     dispatch(safeAdded(safe));
     handleClose(e);
   };
@@ -50,6 +55,14 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
 
     dispatch(safeUpdated(safe));
     handleClose(e);
+  };
+
+  const validateSafeForm = () => {
+    if (safe.name === "" || safe.owner === "") return true;
+
+    if (safe.description.replace(/\s/g, "").length < 10) return true;
+
+    return false;
   };
 
   useEffect(() => {
@@ -93,13 +106,20 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
           value={safe.description}
           rows={2}
           onChange={handleChange}
-        />
+          help
+        >
+          Please add a minimum of 10 characters
+        </Input>
         <div className="safes-form__button-group">
           <Button label="Cancel" inverse onClick={handleClose} />
           {edit ? (
             <Button label="Update" onClick={handleUpdate} />
           ) : (
-            <Button label="+ Create" onClick={handleAdd} />
+            <Button
+              label="+ Create"
+              onClick={handleAdd}
+              disabled={validateSafeForm()}
+            />
           )}
         </div>
       </form>

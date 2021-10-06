@@ -5,6 +5,7 @@ import LeftCard from "../../../components/card/leftCard";
 import SafesForm from "./safesform/safesForm";
 import SearchBox from "../../../components/searchbox/searchBox";
 import { safeDeleted, safeSelected } from "../../../store/safes/actions";
+import debounce from "../../../utils/debounce";
 import filterArrays from "../../../utils/filter";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
@@ -42,9 +43,9 @@ const SafesLeft = () => {
     dispatch(safeSelected(id));
   };
 
-  const handleQuery = (query) => {
+  const handleQuery = debounce(function (query) {
     setQuery(query);
-  };
+  }, 500);
 
   return (
     <article className="safes-left">
