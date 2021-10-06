@@ -2,6 +2,7 @@
   background: #20232e;
   display: flex;
   padding: 0.3rem 1rem;
+  align-items: center;
 }
 
 .search-box__icon {
@@ -15,6 +16,7 @@
   caret-color: #5e627c;
   color: #5e627c;
   outline: none;
+  font-size: 1.6rem;
 }
 
 .search-box__input::placeholder {
