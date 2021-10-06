@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
-  margin: -0.78rem 0 -1rem 0;
+  margin: -0.75rem 0 -1rem 0;
   height: 19rem;
   position: relative;
 }
@@ -28,7 +28,7 @@
 .secrets {
   background: linear-gradient(to bottom, #151820, #2c3040);
   padding: 2rem;
-  height: calc(100% - 17.22rem);
+  height: calc(100% - 17.25rem);
 }
 
 .secrets__header {
@@ -59,7 +59,7 @@
 }
 
 .secrets__list {
-  min-height: calc(100% - 9.956rem);
+  min-height: calc(100% - 10.42rem);
   height: 0;
   overflow: auto;
 }

@@ -53,6 +53,13 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
 
+    if (
+      safes.filter((s) => s.name === safe.name && s.id !== safe.id).length > 0
+    ) {
+      alert("A Safe with the same name already exists!");
+      return;
+    }
+
     dispatch(safeUpdated(safe));
     handleClose(e);
   };
@@ -113,7 +120,11 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
         <div className="safes-form__button-group">
           <Button label="Cancel" inverse onClick={handleClose} />
           {edit ? (
-            <Button label="Update" onClick={handleUpdate} />
+            <Button
+              label="Update"
+              onClick={handleUpdate}
+              disabled={validateSafeForm()}
+            />
           ) : (
             <Button
               label="+ Create"

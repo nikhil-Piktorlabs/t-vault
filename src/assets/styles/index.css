@@ -5,7 +5,43 @@
 }
 
 html {
-  font-size: 56%;
+  font-size: 57%;
+}
+
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media screen and (min-width: 2900px) {
+  html {
+    font-size: 110%;
+  }
+}
+
+@media screen and (min-width: 4000px) {
+  html {
+    font-size: 150%;
+  }
+}
+
+@media screen and (min-width: 6000px) {
+  html {
+    font-size: 200%;
+  }
 }
 
 body {
