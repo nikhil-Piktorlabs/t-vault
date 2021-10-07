@@ -13,12 +13,12 @@ function App() {
       <NavBar />
       <main className="container">
         <Switch>
-          <Route exact path="/azure" component={Azure} />
-          <Route exact path="/iam" component={Iam} />
-          <Route exact path="/service" component={Service} />
-          <Route exact path="/vault" component={Vault} />
-          <Route exact path="/safes" component={Safes} />
-          <Redirect exact to="/safes" />
+          <Route path="/azure" component={Azure} />
+          <Route path="/iam" component={Iam} />
+          <Route path="/service" component={Service} />
+          <Route path="/vault" component={Vault} />
+          <Route path="/safes" component={Safes} />
+          <Redirect to="/safes" />
         </Switch>
       </main>
     </React.Fragment>
