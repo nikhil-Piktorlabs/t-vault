@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import LeftCard from "../../../components/card/leftCard";
-import SafesForm from "./safesform/safesForm";
-import SearchBox from "../../../components/searchbox/searchBox";
+import SafesForm from "./safesForm/safesForm";
+import SearchBox from "../../../components/searchBox/searchBox";
 import { safeDeleted, safeSelected } from "../../../store/safes/actions";
 import debounce from "../../../utils/debounce";
 import filterArrays from "../../../utils/filter";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
-import "./safesleft.css";
+import "./allSafes.css";
 
-const SafesLeft = () => {
+const AllSafes = () => {
   const [form, setForm] = useState(false);
   const [edit, setEdit] = useState(false);
   const [query, setQuery] = useState("");
@@ -48,27 +48,27 @@ const SafesLeft = () => {
   }, 500);
 
   return (
-    <article className="safes-left">
-      <header className="safes-left__header">
-        <h2 className="safes-left__heading">
-          All Safes <span className="safes-left__count">({filteredCount})</span>
+    <article className="all-safes">
+      <header className="all-safes__header">
+        <h2 className="all-safes__heading">
+          All Safes <span className="all-safes__count">({filteredCount})</span>
         </h2>
         <SearchBox searchQuery={query} onQuery={handleQuery} />
       </header>
       <div className="hl"></div>
       <div
-        className={`safes-left__list safes-left__empty${
+        className={`all-safes__list all-safes__empty${
           count === 0 ? "" : "--not"
         }`}
       >
         {count === 0 ? (
-          <div className="safes-left__image">
-            <div className="safes-left__caption">
+          <div className="all-safes__image">
+            <div className="all-safes__caption">
               Create a Safe and get started!
             </div>
           </div>
         ) : filteredCount === 0 ? (
-          <div className="safes-left__not-found">No Safe Found!</div>
+          <div className="all-safes__not-found">No Safe Found!</div>
         ) : (
           <ul className="list">
             {filteredSafes.map((safe) => (
@@ -88,7 +88,7 @@ const SafesLeft = () => {
         <img
           src={addIcon}
           alt="add"
-          className="safes-left__add-button"
+          className="all-safes__add-button"
           onClick={() => handleForm()}
         />
       </div>
@@ -102,4 +102,4 @@ const SafesLeft = () => {
   );
 };
 
-export default SafesLeft;
+export default AllSafes;

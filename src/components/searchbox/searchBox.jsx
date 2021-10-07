@@ -1,6 +1,6 @@
 import React from "react";
 import searchIcon from "../../assets/images/search.png";
-import "./searchbox.css";
+import "./searchBox.css";
 
 const SearchBox = ({ seachQuery, onQuery }) => {
   return (

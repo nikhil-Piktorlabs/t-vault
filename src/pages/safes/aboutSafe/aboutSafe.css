@@ -1,4 +1,4 @@
-.safes-right__banner {
+.about-safe__banner {
   background-image: url("../../../assets/images/safe-banner.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.safes-right__caption {
+.about-safe__caption {
   position: absolute;
   top: 4rem;
   left: 25.2rem;
@@ -16,7 +16,7 @@
   white-space: pre;
 }
 
-.safes-right__safe-description {
+.about-safe__safe-description {
   margin-top: 1.3rem;
   color: #c4c4c4;
   display: -webkit-box;
@@ -88,7 +88,7 @@
 }
 
 @media screen and (max-width: 945px) {
-  .safes-right {
+  .about-safe {
     display: none;
   }
 }

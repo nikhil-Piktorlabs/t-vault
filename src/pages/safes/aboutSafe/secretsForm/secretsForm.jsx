@@ -4,7 +4,8 @@ import Input from "../../../../components/input/input";
 import Button from "../../../../components/button/button";
 import ModalForm from "../../../../components/modal/modal";
 import { safeSecretAdded } from "../../../../store/safes/actions";
-import "./secretsform.css";
+import { spaceRemover } from "../../../../utils/space";
+import "./secretsForm.css";
 
 const SecretsForm = ({ form, onForm }) => {
   const newSecret = { name: "" };
@@ -36,8 +37,7 @@ const SecretsForm = ({ form, onForm }) => {
   };
 
   const validateSecretsForm = () => {
-    const matched = secret.name.match(/\w/g);
-    if (matched && matched.length >= 3) return false;
+    if (/^\w+$/.test(spaceRemover(secret.name))) return false;
 
     return true;
   };
@@ -53,8 +53,7 @@ const SecretsForm = ({ form, onForm }) => {
           onChange={handleChange}
           help
         >
-          Please enter a minimum of 3 characters lowercase alphabets, numbers
-          and underscores only.
+          Please enter lowercase alphabets, numbers and underscores only.
         </Input>
         <div className="secrets-form__button-group">
           <Button label="Cancel" inverse onClick={handleClose} />

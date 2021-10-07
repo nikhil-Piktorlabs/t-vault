@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.svg";
-import "./navbar.css";
+import "./navBar.css";
 
 const NavBar = () => {
   const [collapse, setCollapse] = useState(true);

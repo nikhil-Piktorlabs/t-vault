@@ -1,13 +1,13 @@
 import React from "react";
-import SafesLeft from "./safesleft/safesLeft";
-import SafesRight from "./safesright/safesRight";
+import AllSafes from "./allSafes/allSafes";
+import AboutSafe from "./aboutSafe/aboutSafe";
 import "./safes.css";
 
 const Safes = () => {
   return (
     <section className="safes">
-      <SafesLeft />
-      <SafesRight />
+      <AllSafes />
+      <AboutSafe />
     </section>
   );
 };

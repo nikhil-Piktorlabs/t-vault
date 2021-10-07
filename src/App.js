@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import NavBar from "./parts/navbar/navBar";
+import NavBar from "./parts/navBar/navBar";
 import Safes from "./pages/safes/safes";
 import Vault from "./pages/vault/vault";
 import Service from "./pages/service/service";

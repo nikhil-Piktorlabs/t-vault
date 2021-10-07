@@ -7,7 +7,7 @@ import Button from "../../../../components/button/button";
 import { safeAdded, safeUpdated } from "../../../../store/safes/actions";
 import { spaceRemover, trimAndLowerCase } from "../../../../utils/space";
 import safeIcon from "../../../../assets/images/safe-icon.png";
-import "./safesform.css";
+import "./safesForm.css";
 
 const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const newSafe = {

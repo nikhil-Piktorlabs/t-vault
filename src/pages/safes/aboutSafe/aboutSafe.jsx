@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../components/button/button";
 import RightCard from "../../../components/card/rightCard";
-import SecretsForm from "./secretsform/secretsForm";
+import SecretsForm from "./secretsForm/secretsForm";
 import { safeSecretDeleted } from "../../../store/safes/actions";
 import secretIcon from "../../../assets/images/secret.png";
 import folderIcon from "../../../assets/images/folder.png";
 import folderIconActive from "../../../assets/images/folder-active.png";
 import addFolderIcon from "../../../assets/images/add-folder.png";
 import addFolderActiveIcon from "../../../assets/images/add-folder-active.png";
-import "./safesright.css";
+import "./aboutSafe.css";
 
-const SafesRight = () => {
+const AboutSafe = () => {
   const [form, setForm] = useState(false);
 
   const safes = useSelector((state) => state.safes);
@@ -33,11 +33,11 @@ const SafesRight = () => {
   };
 
   return (
-    <article className="safes-right">
-      <div className="safes-right__banner">
-        <div className="safes-right__caption">
+    <article className="about-safe">
+      <div className="about-safe__banner">
+        <div className="about-safe__caption">
           <h1>{safe ? safe.name : "No Safes Created Yet"}</h1>
-          <p className="safes-right__safe-description">
+          <p className="about-safe__safe-description">
             {safe
               ? safe.description
               : "Create a Safe to see your secrets, folders and permissions here"}
@@ -98,4 +98,4 @@ const SafesRight = () => {
   );
 };
 
-export default SafesRight;
+export default AboutSafe;

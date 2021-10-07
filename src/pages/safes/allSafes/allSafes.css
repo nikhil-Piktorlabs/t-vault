@@ -1,41 +1,41 @@
-.safes-left {
+.all-safes {
   background: #151820;
   position: relative;
 }
 
-.safes-left__header {
+.all-safes__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem;
 }
 
-.safes-left__count {
+.all-safes__count {
   font-weight: normal;
   color: #5e627c;
 }
 
-.safes-left__list {
+.all-safes__list {
   min-height: calc(100% - 5.1rem);
   height: 0;
   overflow: auto;
 }
 
-.safes-left__not-found {
+.all-safes__not-found {
   text-align: center;
   color: #5e627c;
   font-size: 1.8rem;
   margin-top: 2rem;
 }
 
-.safes-left__empty {
+.all-safes__empty {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.safes-left__image {
+.all-safes__image {
   background-image: url("../../../assets/images/safe.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -47,35 +47,35 @@
   position: relative;
 }
 
-.safes-left__caption {
+.all-safes__caption {
   position: absolute;
   bottom: 2.7rem;
   font-size: 1.2rem;
 }
 
-.safes-left__add-button {
+.all-safes__add-button {
   width: 6.4rem;
   height: 6.4rem;
   cursor: pointer;
 }
 
-.safes-left__empty--not .safes-left__add-button {
+.all-safes__empty--not .all-safes__add-button {
   position: absolute;
   bottom: 2.5rem;
   right: 3rem;
 }
 
 @media screen and (max-width: 424px) {
-  .safes-left__header {
+  .all-safes__header {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .safes-left__heading {
+  .all-safes__heading {
     margin-bottom: 1rem;
   }
 
-  .safes-left__list {
+  .all-safes__list {
     min-height: calc(100% - 8.42rem);
   }
 }
