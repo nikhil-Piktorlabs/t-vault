@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.svg";
 import "./navbar.css";
 
@@ -7,11 +7,13 @@ const NavBar = () => {
   const [collapse, setCollapse] = useState(true);
   const navItems = [
     { label: "Safes", link: "/safes" },
-    { label: "Vault AppRoles", link: "/vault?data=hello" },
+    { label: "Vault AppRoles", link: "/vault", search: "?data=hello" },
     { label: "Service Accounts", link: "/service" },
     { label: "IAM Service Accounts", link: "/iam" },
     { label: "Azure Active Directory", link: "/azure" },
   ];
+
+  const location = useLocation();
 
   const handleCollapse = () => {
     setCollapse((c) => !c);
@@ -31,8 +33,15 @@ const NavBar = () => {
         className={`list nav__list${collapse ? " nav__list--collapsed" : ""}`}
       >
         {navItems.map((navItem, index) => (
-          <li className="nav__item" key={index}>
-            <Link to={navItem.link}>{navItem.label}</Link>
+          <li
+            className={`nav__item${
+              location.pathname === navItem.link ? " nav__item--selected" : ""
+            }`}
+            key={index}
+          >
+            <Link to={navItem.link + `${navItem.search ? navItem.search : ""}`}>
+              {navItem.label}
+            </Link>
           </li>
         ))}
       </ul>

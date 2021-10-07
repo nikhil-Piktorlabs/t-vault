@@ -42,6 +42,10 @@
   background: linear-gradient(to top, #72134b, #1d212c);
 }
 
+.nav__item--selected {
+  background: linear-gradient(to top, #72134b, #1d212c);
+}
+
 .nav__item > a {
   color: #fff;
   text-decoration: none;
