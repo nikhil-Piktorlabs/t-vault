@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/t-vault/static/css/main.bcf2644b.chunk.css",
-    "main.js": "/t-vault/static/js/main.37316206.chunk.js",
-    "main.js.map": "/t-vault/static/js/main.37316206.chunk.js.map",
+    "main.js": "/t-vault/static/js/main.261d43aa.chunk.js",
+    "main.js.map": "/t-vault/static/js/main.261d43aa.chunk.js.map",
     "runtime-main.js": "/t-vault/static/js/runtime-main.5cbd66c0.js",
     "runtime-main.js.map": "/t-vault/static/js/runtime-main.5cbd66c0.js.map",
-    "static/js/2.edffe56b.chunk.js": "/t-vault/static/js/2.edffe56b.chunk.js",
-    "static/js/2.edffe56b.chunk.js.map": "/t-vault/static/js/2.edffe56b.chunk.js.map",
+    "static/js/2.fa2bb370.chunk.js": "/t-vault/static/js/2.fa2bb370.chunk.js",
+    "static/js/2.fa2bb370.chunk.js.map": "/t-vault/static/js/2.fa2bb370.chunk.js.map",
     "index.html": "/t-vault/index.html",
     "static/css/main.bcf2644b.chunk.css.map": "/t-vault/static/css/main.bcf2644b.chunk.css.map",
-    "static/js/2.edffe56b.chunk.js.LICENSE.txt": "/t-vault/static/js/2.edffe56b.chunk.js.LICENSE.txt",
+    "static/js/2.fa2bb370.chunk.js.LICENSE.txt": "/t-vault/static/js/2.fa2bb370.chunk.js.LICENSE.txt",
     "static/media/add.d0f59f68.png": "/t-vault/static/media/add.d0f59f68.png",
     "static/media/folder-active.8875f7de.png": "/t-vault/static/media/folder-active.8875f7de.png",
     "static/media/folder.de0bcfbf.png": "/t-vault/static/media/folder.de0bcfbf.png",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5cbd66c0.js",
-    "static/js/2.edffe56b.chunk.js",
+    "static/js/2.fa2bb370.chunk.js",
     "static/css/main.bcf2644b.chunk.css",
-    "static/js/main.37316206.chunk.js"
+    "static/js/main.261d43aa.chunk.js"
   ]
 }
