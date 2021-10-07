@@ -5,6 +5,7 @@ import Input from "../../../../components/input/input";
 import Select from "../../../../components/select/select";
 import Button from "../../../../components/button/button";
 import { safeAdded, safeUpdated } from "../../../../store/safes/actions";
+import { spaceRemover, trimAndLowerCase } from "../../../../utils/space";
 import safeIcon from "../../../../assets/images/safe-icon.png";
 import "./safesform.css";
 
@@ -41,7 +42,11 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   const handleAdd = (e) => {
     e.preventDefault();
 
-    if (safes.filter((s) => s.name === safe.name).length > 0) {
+    if (
+      safes.filter(
+        (s) => trimAndLowerCase(s.name) === trimAndLowerCase(safe.name)
+      ).length > 0
+    ) {
       alert("A Safe with the same name already exists!");
       return;
     }
@@ -54,7 +59,11 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
     e.preventDefault();
 
     if (
-      safes.filter((s) => s.name === safe.name && s.id !== safe.id).length > 0
+      safes.filter(
+        (s) =>
+          trimAndLowerCase(s.name) === trimAndLowerCase(safe.name) &&
+          s.id !== safe.id
+      ).length > 0
     ) {
       alert("A Safe with the same name already exists!");
       return;
@@ -65,9 +74,13 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   };
 
   const validateSafeForm = () => {
-    if (safe.name === "" || safe.owner === "") return true;
+    if (
+      spaceRemover(safe.name).length < 1 ||
+      spaceRemover(safe.owner).length < 1
+    )
+      return true;
 
-    if (safe.description.replace(/\s/g, "").length < 10) return true;
+    if (spaceRemover(safe.description).length < 10) return true;
 
     return false;
   };

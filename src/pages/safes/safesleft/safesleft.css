@@ -21,6 +21,13 @@
   overflow: auto;
 }
 
+.safes-left__not-found {
+  text-align: center;
+  color: #5e627c;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
 .safes-left__empty {
   display: flex;
   flex-direction: column;

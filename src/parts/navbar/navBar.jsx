@@ -7,10 +7,10 @@ const NavBar = () => {
   const [collapse, setCollapse] = useState(true);
   const navItems = [
     { label: "Safes", link: "/safes" },
-    { label: "Vault AppRoles", link: "/vault" },
-    { label: "Service Accounts", link: "/" },
-    { label: "IAM Service Accounts", link: "/" },
-    { label: "Azure Active Directory", link: "/" },
+    { label: "Vault AppRoles", link: "/vault?data=hello" },
+    { label: "Service Accounts", link: "/service" },
+    { label: "IAM Service Accounts", link: "/iam" },
+    { label: "Azure Active Directory", link: "/azure" },
   ];
 
   const handleCollapse = () => {

@@ -1,9 +1,11 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./parts/navbar/navBar";
-import Home from "./pages/home/home";
 import Safes from "./pages/safes/safes";
 import Vault from "./pages/vault/vault";
+import Service from "./pages/service/service";
+import Iam from "./pages/iam/iam";
+import Azure from "./pages/azure/azure";
 
 function App() {
   return (
@@ -11,9 +13,12 @@ function App() {
       <NavBar />
       <main className="container">
         <Switch>
+          <Route path="/azure" component={Azure} />
+          <Route path="/iam" component={Iam} />
+          <Route path="/service" component={Service} />
           <Route path="/vault/:text?" component={Vault} />
           <Route path="/safes" component={Safes} />
-          <Route path="/" component={Home} />
+          <Redirect to="/safes" />
         </Switch>
       </main>
     </React.Fragment>

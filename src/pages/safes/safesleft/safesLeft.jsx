@@ -67,6 +67,8 @@ const SafesLeft = () => {
               Create a Safe and get started!
             </div>
           </div>
+        ) : filteredCount === 0 ? (
+          <div className="safes-left__not-found">No Safe Found!</div>
         ) : (
           <ul className="list">
             {filteredSafes.map((safe) => (

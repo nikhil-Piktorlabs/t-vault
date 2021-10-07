@@ -5,10 +5,10 @@ import "./safes.css";
 
 const Safes = () => {
   return (
-    <div className="safes">
+    <section className="safes">
       <SafesLeft />
       <SafesRight />
-    </div>
+    </section>
   );
 };
 

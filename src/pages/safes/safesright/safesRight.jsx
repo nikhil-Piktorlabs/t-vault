@@ -33,7 +33,7 @@ const SafesRight = () => {
   };
 
   return (
-    <section className="safes-right">
+    <article className="safes-right">
       <div className="safes-right__banner">
         <div className="safes-right__caption">
           <h1>{safe ? safe.name : "No Safes Created Yet"}</h1>
@@ -94,7 +94,7 @@ const SafesRight = () => {
         </div>
       </div>
       <SecretsForm form={form} onForm={setForm} />
-    </section>
+    </article>
   );
 };
 
