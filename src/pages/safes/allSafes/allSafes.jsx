@@ -55,7 +55,6 @@ const AllSafes = () => {
         </h2>
         <SearchBox searchQuery={query} onQuery={handleQuery} />
       </header>
-      <div className="hl"></div>
       <div
         className={`all-safes__list all-safes__empty${
           count === 0 ? "" : "--not"

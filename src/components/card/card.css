@@ -3,6 +3,7 @@
   align-items: center;
   padding: 1.7rem 1.7rem 1.7rem 3.8rem;
   min-width: 28rem;
+  cursor: pointer;
 }
 
 .card--selected {
@@ -13,13 +14,13 @@
   background: #1c1f29;
 }
 
-.card--right:hover {
+.card:hover {
   background: linear-gradient(to right, #72134b, #1d212c);
 }
 
 .card__logo {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .card__logo-active {

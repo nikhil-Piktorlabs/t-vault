@@ -7,7 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
+  padding: 1rem;
+  border-bottom: solid 0.1rem #2a2e3e;
 }
 
 .all-safes__count {

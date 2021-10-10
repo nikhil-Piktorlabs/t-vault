@@ -21,6 +21,7 @@ const Input = ({
           className="input"
           rows={rows}
           onChange={(e) => onChange(e)}
+          placeholder={label}
         />
       ) : (
         <input
@@ -29,7 +30,7 @@ const Input = ({
           value={value}
           className="input"
           onChange={(e) => onChange(e)}
-          required
+          placeholder={label}
         />
       )}
       {help && <div className="input-help">{children}</div>}

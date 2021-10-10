@@ -1,30 +1,11 @@
 .safes {
   display: grid;
   grid-template: auto / 40% 60%;
-  margin: 5.4rem 19rem;
-  min-height: 40rem;
-  height: calc(100vh - 17.8rem);
-}
-
-@media screen and (min-width: 901px) and (max-width: 1150px) {
-  .safes {
-    margin: 5.4rem;
-    height: calc(100vh - 17.8rem);
-  }
+  height: 100%;
 }
 
 @media screen and (max-width: 945px) {
   .safes {
-    margin: 3rem;
     grid-template-columns: auto;
-    height: calc(100vh - 13rem);
-  }
-}
-
-@media screen and (max-width: 424px) {
-  .safes {
-    margin: 3rem 1rem 1rem 1rem;
-    grid-template-columns: auto;
-    height: calc(100vh - 11rem);
   }
 }

@@ -76,18 +76,25 @@ h3 {
   background: linear-gradient(to top, #2f3545, #1d212c);
   height: calc(100vh - 7rem);
   overflow: auto;
+  padding: 5.4rem 19rem;
 }
 
-/* Line */
-
-.hl {
-  height: 0.1rem;
-  background: #2a2e3e;
+@media screen and (min-width: 901px) and (max-width: 1150px) {
+  .container {
+    padding: 5.4rem;
+  }
 }
 
-.hl-1 {
-  height: 0.3rem;
-  background-color: #222632;
+@media screen and (max-width: 945px) {
+  .container {
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .container {
+    padding: 3rem 1rem 1rem 1rem;
+  }
 }
 
 /* List */

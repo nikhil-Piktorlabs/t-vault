@@ -58,7 +58,6 @@ const AboutSafe = () => {
             }}
           />
         </header>
-        <div className="hl-1"></div>
         <div className="secrets__count">{count} Secrets</div>
         <div className={`secrets__list${count === 0 ? " secrets__empty" : ""}`}>
           {count === 0 ? (
