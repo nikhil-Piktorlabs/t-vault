@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../components/button/button";
 import RightCard from "../../../components/card/rightCard";
 import SecretsForm from "./secretsForm/secretsForm";
-import { safeSecretDeleted } from "../../../store/safes/actions";
+import { apiCallBegan } from "../../../store/middleware/api";
 import secretIcon from "../../../assets/images/secret.png";
 import folderIcon from "../../../assets/images/folder.png";
 import folderIconActive from "../../../assets/images/folder-active.png";
@@ -28,8 +28,14 @@ const AboutSafe = () => {
     setForm((form) => !form);
   };
 
-  const handleDelete = (index) => {
-    dispatch(safeSecretDeleted(index));
+  const handleDelete = (secretId) => {
+    dispatch(
+      apiCallBegan({
+        url: `/safes/${safe._id}/secrets/${secretId}`,
+        method: "delete",
+        onSuccess: "safes/safeUpdated",
+      })
+    );
   };
 
   return (
@@ -77,14 +83,13 @@ const AboutSafe = () => {
             </React.Fragment>
           ) : (
             <ul className="list">
-              {secrets.map((secret, index) => (
-                <li className="list__item" key={index}>
+              {secrets.map((secret) => (
+                <li className="list__item" key={secret._id}>
                   <RightCard
                     logo={folderIcon}
                     logoActive={folderIconActive}
                     item={secret}
                     onDelete={handleDelete}
-                    index={index}
                   />
                 </li>
               ))}
@@ -92,7 +97,7 @@ const AboutSafe = () => {
           )}
         </div>
       </div>
-      <SecretsForm form={form} onForm={setForm} />
+      <SecretsForm form={form} onForm={setForm} selectedSafe={safe} />
     </article>
   );
 };

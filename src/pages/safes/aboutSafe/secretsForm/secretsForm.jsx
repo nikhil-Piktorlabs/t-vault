@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import Input from "../../../../components/input/input";
 import Button from "../../../../components/button/button";
 import ModalForm from "../../../../components/modal/modal";
-import { safeSecretAdded } from "../../../../store/safes/actions";
+import { apiCallBegan } from "../../../../store/middleware/api";
 import { spaceRemover } from "../../../../utils/space";
 import "./secretsForm.css";
 
-const SecretsForm = ({ form, onForm }) => {
+const SecretsForm = ({ form, onForm, selectedSafe }) => {
   const newSecret = { name: "" };
   const [secret, setSecret] = useState(newSecret);
 
@@ -32,7 +32,14 @@ const SecretsForm = ({ form, onForm }) => {
   const handleAdd = (e) => {
     e.preventDefault();
 
-    dispatch(safeSecretAdded(secret));
+    dispatch(
+      apiCallBegan({
+        url: `/safes/${selectedSafe._id}/secrets`,
+        method: "patch",
+        data: secret,
+        onSuccess: "safes/safeUpdated",
+      })
+    );
     handleClose(e);
   };
 

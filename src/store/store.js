@@ -1,9 +1,8 @@
-import { createStore, combineReducers } from "redux";
-import safeReducer from "./safes/reducer";
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import safeReducer from "./safes";
+import api from "./middleware/api";
 
 const allReducers = combineReducers({ safes: safeReducer });
 
-export default createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+export default configureStore({ reducer: allReducers, middleware: [api] });

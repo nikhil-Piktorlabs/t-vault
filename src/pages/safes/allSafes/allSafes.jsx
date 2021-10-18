@@ -4,12 +4,13 @@ import { useDispatch } from "react-redux";
 import LeftCard from "../../../components/card/leftCard";
 import SafesForm from "./safesForm/safesForm";
 import SearchBox from "../../../components/searchBox/searchBox";
-import { safeDeleted, safeSelected } from "../../../store/safes/actions";
+import { safeSelected } from "../../../store/safes";
 import debounce from "../../../utils/debounce";
 import filterArrays from "../../../utils/filter";
 import addIcon from "../../../assets/images/add.png";
 import safeIcon from "../../../assets/images/safe-icon.png";
 import "./allSafes.css";
+import { apiCallBegan } from "../../../store/middleware/api";
 
 const AllSafes = () => {
   const [form, setForm] = useState(false);
@@ -29,7 +30,13 @@ const AllSafes = () => {
   const handleDelete = (e, id) => {
     e.stopPropagation();
 
-    dispatch(safeDeleted(id));
+    dispatch(
+      apiCallBegan({
+        url: `/safes/${id}`,
+        method: "delete",
+        onSuccess: "safes/safeDeleted",
+      })
+    );
   };
 
   const handleEdit = (e) => {
@@ -71,7 +78,7 @@ const AllSafes = () => {
         ) : (
           <ul className="list">
             {filteredSafes.map((safe) => (
-              <li key={safe.id} className="list__item list__item--margin">
+              <li key={safe._id} className="list__item list__item--margin">
                 <LeftCard
                   logo={safeIcon}
                   item={safe}

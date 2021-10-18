@@ -4,8 +4,8 @@ import ModalForm from "../../../../components/modal/modal";
 import Input from "../../../../components/input/input";
 import Select from "../../../../components/select/select";
 import Button from "../../../../components/button/button";
-import { safeAdded, safeUpdated } from "../../../../store/safes/actions";
-import { spaceRemover, trimAndLowerCase } from "../../../../utils/space";
+import { apiCallBegan } from "../../../../store/middleware/api";
+import { spaceRemover } from "../../../../utils/space";
 import safeIcon from "../../../../assets/images/safe-icon.png";
 import "./safesForm.css";
 
@@ -15,7 +15,6 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
     owner: "",
     type: "personal",
     description: "",
-    secrets: [],
   };
   const [safe, setSafe] = useState(newSafe);
   const safes = useSelector((state) => state.safes);
@@ -39,37 +38,31 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
     onForm();
   };
 
-  const handleAdd = (e) => {
+  const handleAdd = async (e) => {
     e.preventDefault();
 
-    if (
-      safes.filter(
-        (s) => trimAndLowerCase(s.name) === trimAndLowerCase(safe.name)
-      ).length > 0
-    ) {
-      alert("A Safe with the same name already exists!");
-      return;
-    }
-
-    dispatch(safeAdded(safe));
+    dispatch(
+      apiCallBegan({
+        url: "/safes",
+        method: "post",
+        data: safe,
+        onSuccess: "safes/safeAdded",
+      })
+    );
     handleClose(e);
   };
 
   const handleUpdate = (e) => {
     e.preventDefault();
 
-    if (
-      safes.filter(
-        (s) =>
-          trimAndLowerCase(s.name) === trimAndLowerCase(safe.name) &&
-          s.id !== safe.id
-      ).length > 0
-    ) {
-      alert("A Safe with the same name already exists!");
-      return;
-    }
-
-    dispatch(safeUpdated(safe));
+    dispatch(
+      apiCallBegan({
+        url: `/safes/${safe._id}`,
+        method: "patch",
+        data: safe,
+        onSuccess: "safes/safeUpdated",
+      })
+    );
     handleClose(e);
   };
 

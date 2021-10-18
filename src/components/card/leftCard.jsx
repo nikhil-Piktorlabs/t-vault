@@ -8,7 +8,7 @@ const LeftCard = ({ logo, item, onEdit, onDelete, selected, onClick }) => {
   return (
     <div
       className={`card ${selected && "card--selected"}`}
-      onClick={() => onClick(item.id)}
+      onClick={() => onClick(item._id)}
     >
       <img src={logo} alt="logo" className="card__logo" />
       <div className="card__info">
@@ -23,7 +23,7 @@ const LeftCard = ({ logo, item, onEdit, onDelete, selected, onClick }) => {
         </span>
         <span
           className="card__icon-container"
-          onClick={(e) => onDelete(e, item.id)}
+          onClick={(e) => onDelete(e, item._id)}
         >
           <img src={deleteIcon} alt="delete" className="card__icon" />
         </span>

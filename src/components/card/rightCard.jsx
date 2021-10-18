@@ -3,7 +3,7 @@ import moment from "moment";
 import deleteIcon from "../../assets/images/delete.png";
 import "./card.css";
 
-const RightCard = ({ logo, logoActive, item, index, onDelete }) => {
+const RightCard = ({ logo, logoActive, item, onDelete }) => {
   return (
     <div className="card card--right">
       <img src={logo} alt="logo" className="card__logo" />
@@ -13,7 +13,10 @@ const RightCard = ({ logo, logoActive, item, index, onDelete }) => {
         <div className="card__info-time">{moment(item.added).fromNow()}</div>
       </div>
       <div className="card__actions">
-        <span className="card__icon-container" onClick={() => onDelete(index)}>
+        <span
+          className="card__icon-container"
+          onClick={() => onDelete(item._id)}
+        >
           <img src={deleteIcon} alt="delete" className="card__icon" />
         </span>
       </div>
