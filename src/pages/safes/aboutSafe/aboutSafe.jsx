@@ -14,7 +14,7 @@ import "./aboutSafe.css";
 const AboutSafe = () => {
   const [form, setForm] = useState(false);
 
-  const safes = useSelector((state) => state.safes);
+  const safes = useSelector((state) => state.safes.list);
   const safe = safes.find((s) => s.selected === true);
 
   const secrets = safe ? safe.secrets : null;

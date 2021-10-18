@@ -17,7 +17,7 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
     description: "",
   };
   const [safe, setSafe] = useState(newSafe);
-  const safes = useSelector((state) => state.safes);
+  const safes = useSelector((state) => state.safes.list);
 
   const dispatch = useDispatch();
 

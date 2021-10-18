@@ -17,7 +17,9 @@ const AllSafes = () => {
   const [edit, setEdit] = useState(false);
   const [query, setQuery] = useState("");
 
-  const safes = useSelector((state) => state.safes);
+  const loading = useSelector((state) => state.safes.loading);
+
+  const safes = useSelector((state) => state.safes.list);
   const count = safes.length;
 
   const filteredSafes = filterArrays(safes, query);
@@ -62,42 +64,49 @@ const AllSafes = () => {
         </h2>
         <SearchBox searchQuery={query} onQuery={handleQuery} />
       </header>
-      <div
-        className={`all-safes__list all-safes__empty${
-          count === 0 ? "" : "--not"
-        }`}
-      >
-        {count === 0 ? (
-          <div className="all-safes__image">
-            <div className="all-safes__caption">
-              Create a Safe and get started!
+      {loading ? (
+        <div className="all-safes__spinner-container">
+          <div className="all-safes__spinner"></div>
+        </div>
+      ) : (
+        <div
+          className={`all-safes__list all-safes__empty${
+            count === 0 ? "" : "--not"
+          }`}
+        >
+          {count === 0 ? (
+            <div className="all-safes__image">
+              <div className="all-safes__caption">
+                Create a Safe and get started!
+              </div>
             </div>
-          </div>
-        ) : filteredCount === 0 ? (
-          <div className="all-safes__not-found">No Safe Found!</div>
-        ) : (
-          <ul className="list">
-            {filteredSafes.map((safe) => (
-              <li key={safe._id} className="list__item list__item--margin">
-                <LeftCard
-                  logo={safeIcon}
-                  item={safe}
-                  selected={safe.selected}
-                  onClick={handleSelect}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-        <img
-          src={addIcon}
-          alt="add"
-          className="all-safes__add-button"
-          onClick={() => handleForm()}
-        />
-      </div>
+          ) : filteredCount === 0 ? (
+            <div className="all-safes__not-found">No Safe Found!</div>
+          ) : (
+            <ul className="list">
+              {filteredSafes.map((safe) => (
+                <li key={safe._id} className="list__item list__item--margin">
+                  <LeftCard
+                    logo={safeIcon}
+                    item={safe}
+                    selected={safe.selected}
+                    onClick={handleSelect}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+          <img
+            src={addIcon}
+            alt="add"
+            className="all-safes__add-button"
+            onClick={() => handleForm()}
+          />
+        </div>
+      )}
+
       <SafesForm
         form={form}
         onForm={handleForm}
