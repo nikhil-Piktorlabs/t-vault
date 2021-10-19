@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ModalForm from "../../../../components/modal/modal";
+import Modal from "../../../../components/modal/modal";
 import Input from "../../../../components/input/input";
 import Select from "../../../../components/select/select";
 import Button from "../../../../components/button/button";
@@ -85,7 +85,7 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
   }, [edit, safes]);
 
   return (
-    <ModalForm showModal={form}>
+    <Modal showModal={form} handleShowModal={handleClose}>
       <form className="safes-form">
         <h1>Create Safe</h1>
         <div className="safes-form__info">
@@ -140,7 +140,7 @@ const SafesForm = ({ form, onForm, edit, setEdit }) => {
           )}
         </div>
       </form>
-    </ModalForm>
+    </Modal>
   );
 };
 

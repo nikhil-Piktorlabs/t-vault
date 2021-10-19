@@ -51,7 +51,7 @@
   text-decoration: none;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 979px) {
   .nav {
     padding: 0 3rem;
     justify-content: stretch;
@@ -74,7 +74,7 @@
   .nav__item {
     font-size: 1.3rem;
     margin: 0;
-    padding: 0rem 1rem;
+    padding: 0rem;
   }
 
   .nav__item > a {
@@ -82,6 +82,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 15rem;
+    padding: 0rem 1rem;
   }
 
   .nav__end {
@@ -98,19 +100,19 @@
   }
 }
 
-@media screen and (min-width: 945px) and (max-width: 1150px) {
+@media screen and (min-width: 980px) and (max-width: 1224px) {
   .nav {
     padding: 0 5.4rem;
   }
 }
 
-@media screen and (min-width: 1151px) {
+@media screen and (min-width: 1225px) {
   .nav {
     padding: 0 19rem;
   }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1460px) {
   .nav__end {
     display: none;
   }

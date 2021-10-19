@@ -10,6 +10,7 @@
   padding: 1.5rem;
   margin-top: 0.8rem;
   font-size: 1.6rem;
+  resize: none;
 }
 
 .input-help {

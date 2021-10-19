@@ -50,7 +50,7 @@ const SecretsForm = ({ form, onForm, selectedSafe }) => {
   };
 
   return (
-    <ModalForm showModal={form}>
+    <ModalForm showModal={form} handleShowModal={handleClose}>
       <form className="secrets-form">
         <h1 className="secrets-form__heading">Add Folder</h1>
         <Input

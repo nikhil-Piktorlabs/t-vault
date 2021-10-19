@@ -26,7 +26,6 @@ const api =
       dispatch({ type: onSuccess, payload: response.data });
       dispatch({ type: "safes/setSafeLoad" });
     } catch (error) {
-      console.log(error);
       dispatch({ type: "safes/setSafeLoad" });
     }
   };

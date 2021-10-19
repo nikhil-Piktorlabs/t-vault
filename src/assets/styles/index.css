@@ -79,13 +79,13 @@ h3 {
   padding: 5.4rem 19rem;
 }
 
-@media screen and (min-width: 901px) and (max-width: 1150px) {
+@media screen and (min-width: 980px) and (max-width: 1224px) {
   .container {
     padding: 5.4rem;
   }
 }
 
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 979px) {
   .container {
     padding: 3rem;
   }

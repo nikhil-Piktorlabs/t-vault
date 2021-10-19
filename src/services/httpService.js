@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.interceptors.response.use(null, (error) => {
-  alert("Error");
+  alert(error.response.data);
 
   return Promise.reject(error);
 });
